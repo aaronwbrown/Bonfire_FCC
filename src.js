@@ -56,13 +56,15 @@ indexOf = function(array, target){
         result = index;
       }
     });
-
     return result;
   };
 
-var myString = "No pants in the River".toLowerCase().split(" ");
-console.log(myString);
-console.log(indexOf(myString, "river"));
+// var myArr = [3,5,5,3,6,4,3,4,3];
+// var myIndex = indexOf(myArr, 6);
+// console.log(myIndex);
+// var myString = "No pants in the River".toLowerCase().split(" ");
+// console.log(myString);
+// console.log(indexOf(myString, "pants"));
 
 // // ** CODECAMP BONFIRE CHALLENGES ** //
 
@@ -104,7 +106,7 @@ function palindrome(str) {
 palindrome("mee,y,eem");
 
 // **** Return longest word **** //
-// This currently gives the length of the longest word. I want the actual word, too. Working on it below.
+
 // function findLongestWord(str) {
 // // splitting the array on spaces will allow me to isolate each word
 //     var result = [];
@@ -122,15 +124,22 @@ palindrome("mee,y,eem");
 
 function findLongestWord(str) {
     var strArray = str.split(" ");
+    console.log(strArray);
     // I'm going to use map and indexOf to find the longest word and return it -- reduce may be a cool way to do it, too
     // if () {
     //     findLongestWord()
     // }
     // first find the length of each sring item and put it in a new array
     // with that new array I can get the indexOf the largest value in the array by comparing with sort
-    var mappedLengthsArray = map(str, function(item) {
+    var mappedLengthsArray = map(strArray, function(item) {
         return item.length;
-    })
+    });
+    var mappedLengthsArraySorted = mappedLengthsArray.sort(function(a, b) {
+        return b - a;
+    });
+    var getLongestWordLength = mappedLengthsArraySorted[0];
+    var indexOfLongestWord = indexOf(mappedLengthsArray, getLongestWordLength)
+    return indexOfLongestWord; // for some reason this keeps returning 0. 
 }
 
 findLongestWord("The quick brown fox jumped over the lazy dog");
