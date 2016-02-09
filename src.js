@@ -104,7 +104,7 @@ function palindrome(str) {
 palindrome("mee,y,eem");
 
 // **** Return longest word **** //
-
+// This currently gives the length of the longest word. I want the actual word, too. Working on it below.
 // function findLongestWord(str) {
 // // splitting the array on spaces will allow me to isolate each word
 //     var result = [];
@@ -122,7 +122,15 @@ palindrome("mee,y,eem");
 
 function findLongestWord(str) {
     var strArray = str.split(" ");
-    // I'm going to use map and indexOf to find the longest word and return it
+    // I'm going to use map and indexOf to find the longest word and return it -- reduce may be a cool way to do it, too
+    // if () {
+    //     findLongestWord()
+    // }
+    // first find the length of each sring item and put it in a new array
+    // with that new array I can get the indexOf the largest value in the array by comparing with sort
+    var mappedLengthsArray = map(str, function(item) {
+        return item.length;
+    })
 }
 
 findLongestWord("The quick brown fox jumped over the lazy dog");
